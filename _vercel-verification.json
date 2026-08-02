@@ -1,0 +1,42 @@
+{
+  "name": "deployment-verification",
+  "description": "Check if app is ready for deployment",
+  "checks": [
+    {
+      "name": "Package.json Scripts",
+      "file": "package.json",
+      "pattern": "scripts: \\{\"build\": \"next build\", \"start\": \"next start\"\\}",
+      "expected": {
+        "build": "next build",
+        "start": "next start"
+      }
+    },
+    {
+      "name": "Vercel Configuration",
+      "file": "vercel.json",
+      "exists": true,
+      "keys": [
+        "builds",
+        "routes"
+      ]
+    },
+    {
+      "name": "Production Dependencies",
+      "file": "package.json",
+      "pattern": "dependencies: \\{\"next@latest\": [^}]+,\"react@latest\": [^}]+,\"react-dom@latest\": [^}]+,\"tailwindcss@latest\": [^}]+\"\\}",
+      "requiredDependencies": [
+        "next",
+        "react",
+        "react-dom",
+        "tailwindcss"
+      ]
+    },
+    {
+      "name": "Tailwind Configuration",
+      "file": "tailwind.config.js",
+      "exists": true,
+      "pattern": "extends: \\[\\'@tailwindcss\\/default\\',\\'./src/app/globals.css\\'\\]"
+    }
+  ],
+  "commands": {}
+}

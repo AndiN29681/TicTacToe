@@ -4,9 +4,27 @@
   "description": "Dieses Projekt ist ein Lernbeispielfür die Entwicklung einer modernen Webanwendung für das Spiel Tic-Tac-Toe. Es dient dazu, mich mit Claude Code, Git und Vercel vertraut zu machen – und nicht nur funktionierenden Code zu schreiben, sondern auch den gesamten Entwicklungsprozess zu verstehen.",
   "main": "index.js",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^2.0.0"
+  }
 }
